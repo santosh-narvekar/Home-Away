@@ -6,7 +6,6 @@ import { auth, clerkClient, currentUser } from '@clerk/nextjs/server';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { uploadImage } from "./supabase";
-import { TbRulerMeasure } from "react-icons/tb";
 
 const getAuthUser = async() => {
   const user = await currentUser();
