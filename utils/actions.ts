@@ -7,7 +7,6 @@ import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { uploadImage } from "./supabase";
 import { calculateTotals } from "./calculateTotals";
-import { devNull } from "os";
 import { formatDate } from "./format";
 
 const getAuthUser = async() => {
@@ -25,7 +24,6 @@ const getAdminUser = async() => {
 }
 
 const renderError = (error:unknown)=>{
-  console.log(error)
   return {message:error instanceof Error?error.message:'there was an error'};
 } 
 
@@ -157,6 +155,8 @@ export const createPropertyAction = async (prevState:any,formData:FormData):Prom
     // getting the image Path from supabase after uploading
     const fullPath = await uploadImage(validatedFile.image);
 
+    
+
 
     await db.property.create({
       data:{
@@ -165,7 +165,7 @@ export const createPropertyAction = async (prevState:any,formData:FormData):Prom
         profileId:user.id
       }
     })
-
+    
   }catch(error){
      return renderError(error)
   }
