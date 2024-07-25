@@ -16,7 +16,7 @@ const isPublicRoute = createRouteMatcher(['/','/properties(.*)'])
 
 const isAdminRoute = createRouteMatcher(['/admin(.*)']);
 
-export default clerkMiddleware(async (auth, req) => {
+export default clerkMiddleware((auth, req) => {
   // every request will pass through this middleware
  // if (isProtectedRoute(req)) auth().protect();
  
