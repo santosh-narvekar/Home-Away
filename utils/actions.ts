@@ -154,10 +154,7 @@ export const createPropertyAction = async (prevState:any,formData:FormData):Prom
 
     // getting the image Path from supabase after uploading
     const fullPath = await uploadImage(validatedFile.image);
-
     
-
-
     await db.property.create({
       data:{
         ...validatedFields,
@@ -165,12 +162,11 @@ export const createPropertyAction = async (prevState:any,formData:FormData):Prom
         profileId:user.id
       }
     })
-    
+    return { message: "Property successfully created"};
   }catch(error){
      return renderError(error)
   }
-
-  redirect('/')
+  //redirect('/')
 }
 
 
