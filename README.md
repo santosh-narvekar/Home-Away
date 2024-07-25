@@ -6005,6 +6005,7 @@ npm install --save @stripe/react-stripe-js @stripe/stripe-js stripe axios
 ### Refactor createBookingAction
 
 ```ts
+
 export const createBookingAction = async (prevState: {
   propertyId: string;
   checkIn: Date;
