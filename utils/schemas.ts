@@ -3,7 +3,6 @@ import { ZodSchema } from 'zod'
 
 // ZodSchema
   export function validateWithZodSchema<T>(schema:ZodSchema<T>,data:unknown):T{
-
     const result = schema.safeParse(data);
 
     if (!result.success) {
@@ -79,7 +78,14 @@ import { ZodSchema } from 'zod'
     message: 'beds amount must be a positive number.',
   }),
   baths: z.coerce.number().int().min(0, {
-    message: 'bahts amount must be a positive number.',
+    message: 'baths amount must be a positive number.',
   }),
   amenities: z.string(),
   });
+
+
+  export const createReviewSchema = z.object({
+    propertyId:z.string(),
+    rating:z.coerce.number().int().min(1).max(5),
+    comment:z.string().min(10).max(1000)
+  }) 

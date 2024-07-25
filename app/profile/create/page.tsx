@@ -15,9 +15,9 @@ async function CreateProfilePage() {
       <div className='border p-8 rounded-md '>
          <FormContainer action={createProfileAction}>
           <div className='grid md:grid-cols-2 gap-4 mt-4 '>
-            <FormInput type='text' name='firstName' label='First Name' />
-            <FormInput type='text' name='lastName' label='Last Name' />
-            <FormInput type='text' name='username' label='Username' />
+            <FormInput type='text' name='firstName' label='First Name' defaultValue={user?.firstName!} />
+            <FormInput type='text' name='lastName' label='Last Name' defaultValue={user?.lastName!} />
+            <FormInput type='text' name='username' label='Username' defaultValue="" />
           </div>
           <SubmitButton text='Create Profile' className='mt-8' />
         </FormContainer>

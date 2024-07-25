@@ -5713,6 +5713,7 @@ import { NextResponse } from 'next/server';
 const isPublicRoute = createRouteMatcher(['/', '/properties(.*)']);
 
 const isAdminRoute = createRouteMatcher(['/admin(.*)']);
+
 export default clerkMiddleware(async (auth, req) => {
   const isAdminUser = auth().userId === process.env.ADMIN_USER_ID;
   if (isAdminRoute(req) && !isAdminUser) {

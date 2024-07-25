@@ -8,15 +8,26 @@ import ImageContainer from "@/components/properties/ImageContainer";
 import PropertyDetails from "@/components/properties/PropertyDetails";
 import ShareButton from "@/components/properties/ShareButton";
 import UserInfo from "@/components/properties/UserInfo";
+import PropertyReviews from "@/components/reviews/PropertyReviews";
+import SubmitReview from "@/components/reviews/SubmitReview";
 import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
-import { fetchPropertyDetails } from "@/utils/actions"
+import { fetchPropertyDetails,findExistingReview } from "@/utils/actions"
 import dynamic from "next/dynamic";
 import { redirect } from "next/navigation";
+import {auth} from '@clerk/nextjs/server';
+
+
+
 
 const DynamicMap = dynamic(()=>import('@/components/properties/PropertyMap'),{
   ssr:false,
   loading: () => <Skeleton className = 'h-[400px] w-full'/>
+});
+
+const DynamicBookingWrapper = dynamic(()=>import('@/components/properties/booking/BookingWrapper'),{
+  ssr:false,
+  loading:() => <Skeleton className="h-[200px] w-full"/>
 });
 
 async function PropertyDetailsPage({params}:{params:{id:string}}){
@@ -24,6 +35,17 @@ async function PropertyDetailsPage({params}:{params:{id:string}}){
   if(!property) redirect('/')
   const {baths, bedrooms, beds, guests} = property; 
   const {firstName,profileImage} = property.profile;
+  const {userId} = auth();
+  // relation between property and profile
+  const isNotOwner = property.profile.clerkId !== userId
+
+  // to summarize checking if the user is logged in by userId
+  // if he is logged in Checking if he is not the owner
+  // if he is not the owner checking if the review is already present 
+  // if all conditions match then showing review button
+  const reviewDoesNotExist = userId && isNotOwner && !(await findExistingReview(userId,property.id))
+
+  console.log(property.bookings)
 
   // turning into a different object
   const details ={
@@ -32,6 +54,8 @@ async function PropertyDetailsPage({params}:{params:{id:string}}){
     beds,
     guests
   }
+
+
   return (
 
     <section>
@@ -66,11 +90,18 @@ async function PropertyDetailsPage({params}:{params:{id:string}}){
         </div>
         <div className="lg:col-span-4 flex flex-col items-center">
           {/* calendar */}
-          <BookingCalendar />
+          <DynamicBookingWrapper propertyId={property.id} price={property.price} bookings = {property.bookings} />
         </div>
       </section>
+
+      {
+        reviewDoesNotExist && <SubmitReview propertyId = {property.id} />
+      }
+
+      <PropertyReviews propertyId={property.id} />
     </section>
   )
 }
+
 
 export default PropertyDetailsPage

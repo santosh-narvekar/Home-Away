@@ -8,13 +8,13 @@ type PriceInputProps = {
 }
 
 function PriceInput({defaultValue}:PriceInputProps) {
-  const name = 'price' // hardcoding name for server actioon
+  const name = 'price' // hardcoding name for server actions
   return (
     <div className='mb-2'>
        <Label htmlFor={name} className='capitalize'>
-        Price ($)
+        Price (USD)
        </Label> 
-       < Input id={name} type='number' name={name} min={0} defaultValue={defaultValue || 100} required />
+       < Input id={name} type='number' name={name} min={0} defaultValue={defaultValue || 100}   required  />
     </div>
   )
 }
