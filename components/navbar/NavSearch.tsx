@@ -24,7 +24,7 @@ function NavSearch() {
     }
     // replace the current url with this and we dont affect category search param at all in this case
     //replace(`${pathname}?${params}`)
-    replace(`/${params.toString()}`)
+    replace(`/?${params.toString()}`)
   },500);
 
   useEffect(()=>{
