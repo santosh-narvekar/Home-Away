@@ -52,12 +52,12 @@ export const createProfileAction = async (prevState:any,formData:FormData) => {
       }
     })
 
-    return { message: "profile created", success: true };
+    //return { message: "profile created", success: true };
   }catch(error){
     return renderError(error)
   }
 
- // redirect('/')
+ redirect('/profile')
 }
 
 export const fetchProfileImage = async() => {
