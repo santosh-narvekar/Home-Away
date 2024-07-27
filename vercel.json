@@ -3,4 +3,5 @@
     "app/**/*.tsx":{
       "maxDuration":60
     }
+ }
 }
