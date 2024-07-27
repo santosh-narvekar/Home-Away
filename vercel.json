@@ -5,7 +5,7 @@
     },
     "app/profile/create":{
       "maxDuration":60   
-    }
+    },
     "app/properties/create":{
       "maxDuration":60
     }
