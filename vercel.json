@@ -6,7 +6,7 @@
     "app/profile/create":{
       "maxDuration":60   
     },
-    "app/properties/create":{
+    "app/rentals/create":{
       "maxDuration":60
     }
 }
