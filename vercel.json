@@ -3,10 +3,10 @@
     "app/*.tsx":{
       "maxDuration":60
     },
-    "app/profile/create":{
+    "app/profile/create/*.tsx":{
       "maxDuration":60   
     },
-    "app/rentals/create":{
+    "app/rentals/create/*.tsx":{
       "maxDuration":60
     }
 }
