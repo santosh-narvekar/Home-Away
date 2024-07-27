@@ -1,5 +1,5 @@
 {
   "functions": {
-    "app/*.tsx": { "maxDuration": 120 }
+    "app/*.tsx": { "maxDuration": 90 }
   }
 }
