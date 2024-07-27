@@ -57,7 +57,7 @@ export const createProfileAction = async (prevState:any,formData:FormData) => {
     return renderError(error)
   }
 
-  redirect('/profile')
+  redirect('/')
 }
 
 export const fetchProfileImage = async() => {
@@ -164,11 +164,11 @@ export const createPropertyAction = async (prevState:any,formData:FormData):Prom
         profileId:user.id
       }
     })
-    return { message: "Property successfully created"};
+    //return { message: "Property successfully created"};
   }catch(error){
      return renderError(error)
   }
-  //redirect('/')
+  redirect('/')
 }
 
 
