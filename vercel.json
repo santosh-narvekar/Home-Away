@@ -3,7 +3,7 @@
     "app/*.tsx":{
       "maxDuration":60
     },
-    "uti;s/actions.tsx":{
+    "utils/actions.tsx":{
       "maxDuration":60
     }
   }
