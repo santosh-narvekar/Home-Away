@@ -1,8 +1,10 @@
 {
   "functions": {
-    "app/*.tsx": { "maxDuration": 60 },
-     "app/api/**/*": {
-      "maxDuration": 60 // All functions can run for a maximum of 60 seconds
+    "app/*.tsx": {
+      "maxDuration": 60
+    },
+    "app/api/**/*": {
+      "maxDuration": 60 
     }
   }
 }
