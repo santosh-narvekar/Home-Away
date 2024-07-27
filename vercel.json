@@ -1,10 +1,7 @@
 {
   "functions": {
-    "app/*.tsx": {
-      "maxDuration": 60
-    },
     "app/api/**/*": {
-      "maxDuration": 5
+      "maxDuration": 60 
     }
   }
 }
