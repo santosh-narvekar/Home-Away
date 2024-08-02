@@ -19,9 +19,13 @@ export const formatDate = (date:Date,onlyMonth?:boolean) => {
     month:'long'
   }
   
+  const newDate = new Date(date);
+  // increasing date by 1 
+  newDate.setDate(newDate.getDate() + 1);
+  
   if(!onlyMonth){
     options.day = 'numeric'
   }
 
-  return new Intl.DateTimeFormat('en-US',options).format(date)
+  return new Intl.DateTimeFormat('en-US',options).format(newDate) 
 }
