@@ -4,6 +4,8 @@
 
 **Tech Stack Used:**
 - Next Js 14 for complying with industry standards.
+- App router for routing
+- Next Js 14 Server Actions for API Integration.
 - TypeScript To handle build time Errors
 - Clerk library for Authentication
 - Shadcn for Ui
@@ -16,14 +18,15 @@
  - Clerk Authentication
  - Responsive Design (Shadcn)
  - Suspense Loading
+ - Favorites Page/Mark Properties as Favorite
  - Debounced Search for Property Search
- - List View/Grid View
  - Review and Rating Functionality
  - Checkout Page
  - Payment simulation using Stripe
  - Bookings Page to show bookings
+ - Creating/Updating Property
+ - Detailed Sales/Income Earn Details
  - Admin Dashboard
-
 
 **To test it in local enviornment**
  - clone the repository under a folder
