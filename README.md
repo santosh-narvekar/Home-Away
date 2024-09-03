@@ -4,8 +4,9 @@
 
 **Tech Stack Used:**
 - Next Js 14 for complying with industry standards.
-- App router for routing
-- Next Js 14 Server Actions for API Integration.
+- App router for routing pages
+- Next Js 14 server actions.
+- axios for handling api integration.
 - TypeScript To handle build time Errors
 - Clerk library for Authentication
 - Shadcn for Ui
